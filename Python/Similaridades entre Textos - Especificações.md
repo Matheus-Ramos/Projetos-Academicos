@@ -1,4 +1,4 @@
-#Neste programa foi fornecido o esqueleto como base e implementei 3 funções: 
+# Neste programa foi fornecido o esqueleto como base e implementei 3 funções: 
 
         compara_assinatura(as_a, as_b)
 
