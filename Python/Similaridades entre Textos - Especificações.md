@@ -1,3 +1,11 @@
+#Neste programa foi fornecido o esqueleto como base e implementei 3 funções: 
+
+        compara_assinatura(as_a, as_b)
+
+        calcula_assinatura(texto)
+
+        avalia_textos(textos, ass_cp)
+
 # Introdução 
 Manuel Estandarte é monitor na disciplina Introdução à Produção Textual I na Universidade de Pasárgada (UPA). Durante o período letivo, Manuel descobriu que uma epidemia de COH-PIAH estava se espalhando pela UPA. Essa doença rara e altamente contagiosa faz com que indivíduos contaminados produzam, involuntariamente, textos muito semelhantes aos de outras pessoas. Após a entrega da primeira redação, Manuel desconfiou que alguns alunos estavam sofrendo de COH-PIAH. Manuel, preocupado com a saúde da turma, resolveu buscar um método para identificar os casos de COH-PIAH. Para isso, ele necessita da sua ajuda para desenvolver um programa que o auxilie a identificar os alunos contaminados.
 
@@ -24,9 +32,9 @@ A partir da assinatura conhecida de um portador de COH-PIAH, seu programa dever�
 
 Tamanho médio de palavra é a soma dos tamanhos das palavras dividida pelo número total de palavras.
 
-Relação Type-Token é o número de palavras diferentes dividido pelo número total de palavras. Por exemplo, na frase "O gato caçava o rato", temos 5 palavras no total (o, gato, caçava, o, rato) mas somente 4 diferentes (o, gato, caçava, rato). Nessa frase, a relação Type-Token vale  #4/5 = 0.8  
+Relação Type-Token é o número de palavras diferentes dividido pelo número total de palavras. Por exemplo, na frase "O gato caçava o rato", temos 5 palavras no total (o, gato, caçava, o, rato) mas somente 4 diferentes (o, gato, caçava, rato). Nessa frase, a relação Type-Token vale  4/5 = 0.8  
 
-Razão Hapax Legomana é o número de palavras que aparecem uma única vez dividido pelo total de palavras. Por exemplo, na frase "O gato caçava o rato", temos 5 palavras no total (o, gato, caçava, o, rato) mas somente 3 que aparecem só uma vez (gato, caçava, rato). Nessa frase, a relação Hapax Legomana vale  #3/5 = 0.6  
+Razão Hapax Legomana é o número de palavras que aparecem uma única vez dividido pelo total de palavras. Por exemplo, na frase "O gato caçava o rato", temos 5 palavras no total (o, gato, caçava, o, rato) mas somente 3 que aparecem só uma vez (gato, caçava, rato). Nessa frase, a relação Hapax Legomana vale  3/5 = 0.6  
 
 Tamanho médio de sentença é a soma dos números de caracteres em todas as sentenças dividida pelo número de sentenças (os caracteres que separam uma sentença da outra não devem ser contabilizados como parte da sentença).
 
@@ -36,72 +44,27 @@ Tamanho médio de frase é a soma do número de caracteres em cada frase dividid
 
 Após calcular esses valores para cada texto, você deve compará-los com a assinatura fornecida para os infectados por COH-PIAH. O grau de similaridade entre dois textos,  a a e  b b, é dado pela fórmula:
 
- S_{ab} = \frac{\sum_{i=1}^6 || f_{i,a} - f_{i,b} ||}{6} S 
-ab
-​
- = 
-6
-∑ 
-i=1
-6
-​
- ∣∣f 
-i,a
-​
- −f 
-i,b
-​
- ∣∣
-​
- 
+ Sab = ((Somatorio de i = 1 ate 6) || Fi,a - Fi,b ||) / 6  
+
 
 Onde:
 
- S_{ab} S 
-ab
-​
-  é o grau de similaridade entre os textos  a a e  b b;
+    Sab : é o grau de similaridade entre os textos "a e b";
 
- f_{i,a} f 
-i,a
-​
-  é o valor de cada traço linguístico  i i no texto  a a; e
+    Fi,a : é o valor de cada traço linguístico "i" no texto "a"; e
 
- f_{i,b} f 
-i,b
-​
-  é o valor de cada traço linguístico  i i no texto  b b.
+    Fi,b : é o valor de cada traço linguístico "i" no texto "b".
 
-No nosso caso, o texto  b b não é conhecido, mas temos a assinatura correspondente: a assinatura de um aluno infectado com COH-PIAH. Ou seja, sabemos o valor de  f_{i,b} f 
-i,b
-​
-  que é dado como valor de entrada do programa. 
+No nosso caso, o texto "b" não é conhecido, mas temos a assinatura correspondente: a assinatura de um aluno infectado com COH-PIAH. Ou seja, sabemos o valor de "Fi,b"  que é dado como valor de entrada do programa. 
 
 Caso você não esteja acostumado com a notação matemática, podemos destrinchar essa fórmula da seguinte maneira: 
 
-Para cada traço linguístico  i i (tamanho médio da palavra, relação type-token etc.) se quer a diferença entre o valor obtido em cada texto dado ( a a) e o valor típico do texto de uma pessoa infectada ( b b):  f_{i, a} - f_{i, b} f 
-i,a
-​
- −f 
-i,b
-​
+Para cada traço linguístico "i" (tamanho médio da palavra, relação type-token etc.) se quer a diferença entre o valor obtido em cada texto dado (a) e o valor típico do texto de uma pessoa infectada (b):  Fi,a - Fi,b
  
+Dessa diferença se toma o módulo ( ||...|| ), lembre-se da função abs do python.
 
-Dessa diferença se toma o módulo ( || \ldots || ∣∣…∣∣), lembre-se da função abs do python.
+Somamos os resultados dos 6 traços linguísticos (Somatorio de i = 1 ate 6)
 
-Somamos os resultados dos 6 traços linguísticos (\sum_{i=1}^6∑ 
-i=1
-6
-​
- )
+E por final dividimos por 6 : x/6
 
-E por final dividimos por 6 (  \frac{x}{6} 
-6
-x
-​
- )
-
-Perceba que quanto mais similares  a a e  b b forem, menor  S_{ab} S 
-ab
-​
-  será. Para cada texto, você deve calcular o grau de similaridade com a assinatura do portador de COH-PIAH e, no final, exibir qual texto mais provavelmente foi escrito por algum aluno infectado (ou seja, o texto com assinatura mais similar à assinatura dada).
+Perceba que quanto mais similares "a" e "b" forem, menor "Sab" será. Para cada texto, você deve calcular o grau de similaridade com a assinatura do portador de COH-PIAH e, no final, exibir qual texto mais provavelmente foi escrito por algum aluno infectado (ou seja, o texto com assinatura mais similar à assinatura dada).
