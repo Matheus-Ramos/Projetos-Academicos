@@ -23,10 +23,13 @@ O projeto constaria com um banco de dados de, inicialmente, 85 musicas colocadas
 # Desenvolvimento do Projeto
 
 # Etapa 1:
-    O usuario selecionaria as caracteristicas das musicas que ele deseja ouvir e o sistema retornaria todas as musicas que possuem essas caracteristicas.
+    O usuario selecionaria as caracteristicas das musicas que ele deseja ouvir 
+    e o sistema retornaria todas as musicas que possuem essas caracteristicas.
     
 # Etapa 2:
-    O usuario selecionaria 5 musicas na base de dados e o sistema retornaria uma seleção de musicas que possuem as caracteristicas em comum das musicas fornecidas pelo usuario.
+    O usuario selecionaria 5 musicas na base de dados e o sistema retornaria 
+    uma seleção de musicas que possuem as caracteristicas em comum das musicas 
+    fornecidas pelo usuario.
     
 # Etapa 3:
     O usuario poderia adicionar novas musicas a base de dados.
